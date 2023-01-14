@@ -30,12 +30,12 @@ while game_is_on:
         scoreboard.increment_score()
 
     if my_snake.head.xcor() > 290 or my_snake.head.ycor() < -290 or my_snake.head.ycor() > 290 or my_snake.head.xcor() < -290:
-        game_is_on = False
-        scoreboard.game_over()
+        scoreboard.reset()
+        my_snake.reset()
 
     for segment in my_snake.segments[1:]:
         if my_snake.head.distance(segment) < 10:
-            game_is_on = False
-            scoreboard.game_over()
+            scoreboard.reset()
+            my_snake.reset()
 
 screen.exitonclick()
